@@ -4,16 +4,27 @@ import string
 import numpy as np 
 import pandas as pd 
 import nltk
+import ssl
+
+try:
+    _create_unverified_https_context = ssl._create_unverified_context
+except AttributeError:
+    pass
+else:
+    ssl._create_default_https_context = _create_unverified_https_context
+
+nltk.download('stopwords')
 from nltk.stem.porter import *
-from texstat.textstat import *
-from sklearn.externals import joblib
+from textstat.textstat import *
+import sklearn.externals as extjoblib
+import joblib
 from sklearn.svm import LinearSVC
 from sklearn.linear_model import LogisticRegression
 from sklearn.feature_selection import SelectFromModel
 from sklearn.feature_extraction.text import TfidfVectorizer
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer as VS
 
-stopwords=stopwords = nltk.corpus.stopwords.words("english")
+stopwords = nltk.corpus.stopwords.words("english")
 other_exclusions = ["#ff", "ff", "rt"]
 stopwords.extend(other_exclusions)
 sentiment_analyzer = VS()
@@ -200,8 +211,8 @@ def getTweetPredictions(tweets, perform_prints = True):
                 s = s.encode("utf-8")
             except:
                 pass
-        if type(s) != unicode:
-            fixedTweets.append(unicode(s, errors="ignore"))
+        if type(s) != str:
+            fixedTweets.append(str(s, errors="ignore"))
         fixedTweets.append(s)
     assert len(tweets) == len(fixedTweets), "Do not remove tweets"
     tweets = fixedTweets
@@ -227,9 +238,9 @@ def getTweetPredictions(tweets, perform_prints = True):
 if __name__ == '__main__':
     print("Loading data to classify...")
     
-    df = pd.read_csv('../data/trump_tweets.csv')
+    df = pd.read_csv('../data/trump_tweets.csv', engine='python')
     trumpTweets = df.Text
-    trumpTweets = [x for x in trumpTweets if type(x) == str]
+    trumpTweets = [x for x in trumpTweets if type(x) == bytes]
     trumpPredictions = getTweetPredictions(trumpTweets)
 
     print("Predicting predicted values: ")
@@ -240,13 +251,14 @@ if __name__ == '__main__':
 
     print("Calculate accuracy on labeled data")
 
-    df = pd.read_csv('../data/labeled_data.csv')
+    df = pd.read_csv('../data/labeled_data.csv', engine='python')
     tweets = df['tweet'].values
-    tweets = [x for x in tweets if type(x) == str]
+    tweets = [x for x in tweets if type(x) == bytes]
     tweetClass = df['class'].values
     predictions = getTweetPredictions(tweets)
     rightCount = 0
-    for i, t, enumerate(tweets):
+
+    for i, t in enumerate(tweets):
         if tweetClass[i] == predictions[i]:
             rightCount += 1
     
