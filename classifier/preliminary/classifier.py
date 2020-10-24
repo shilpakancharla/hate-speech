@@ -16,7 +16,7 @@ else:
 nltk.download('stopwords')
 from nltk.stem.porter import *
 from textstat.textstat import *
-import sklearn.externals as extjoblib
+import sklearn
 import joblib
 from sklearn.svm import LinearSVC
 from sklearn.linear_model import LogisticRegression
@@ -238,7 +238,7 @@ def getTweetPredictions(tweets, perform_prints = True):
 if __name__ == '__main__':
     print("Loading data to classify...")
     
-    df = pd.read_csv('../data/trump_tweets.csv', engine='python')
+    df = pd.read_csv('../../data/trump_tweets.csv', engine='python')
     trumpTweets = df.Text
     trumpTweets = [x for x in trumpTweets if type(x) == bytes]
     trumpPredictions = getTweetPredictions(trumpTweets)
@@ -251,7 +251,7 @@ if __name__ == '__main__':
 
     print("Calculate accuracy on labeled data")
 
-    df = pd.read_csv('../data/labeled_data.csv', engine='python')
+    df = pd.read_csv('../../data/labeled_data.csv', engine='python')
     tweets = df['tweet'].values
     tweets = [x for x in tweets if type(x) == bytes]
     tweetClass = df['class'].values
