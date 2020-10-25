@@ -4,11 +4,13 @@
 
 ## I. Goal
 
-In order to get the most accurate results, it is important to differentiate between actual hate speech and speech that contains offensive language. There are important key qualitative features that are different amongst the abusive language documented. For instance, a song lyric that contains a curse word may not be considered the same way as a direct, racist slur.
+              Hate speech, aggressive language, and cyberbullying on social platforms can make the experience of being digitally immersed very difficult.
+              While the argument of having the freedom of speech continually persist, the lines between true freedom and offensiveness become blurred.
+              Freedom of speech can easily be warped into offensive, hateful, and unconstructive words online, particularly towards people who belong to
+              marginalized communities. Formally, hate speech can be defined as <i>abusive or threatening speech or writing that expresses prejudice 
+              against a particular group, especially on the basis of race, religion, or sexual orientation</i> (as defined by Oxford Languages).
 
 ## II. Data
 
 ## III. Model
-
-## IV. Features
 
