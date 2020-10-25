@@ -27,3 +27,19 @@ class MyListener(StreamListener):
             print(datajson)
         except Exception as e:
             print(e)
+
+    # Create function to store data in MySQL database
+    def store_data(self, id_str, created_at, text, processed):
+        db = mysql.connector.connect(host="localhost", user="root",  passwd="password", db="twitter_2", charset="utf8")
+        cursor = db.cursor()
+        insert_query = "INSERT INTO twitter_2 (id_str, created_at, text, processed) VALUES (%s, %s, %s, %s)"
+        cursor.execute(insert_query, (id_str, created_at, text, processed))
+        db.commit()
+        cursor.close()
+        db.close()
+        return
+
+if __name__ == "__main__":
+    MyListener = MyListener(api=tweepy.API(wait_on_rate_limit=True))
+    myStream = tweepy.Stream(auth = api.auth, listener = MyListener)
+    myStream.filter(languages=["en"], track=['#islam'])
