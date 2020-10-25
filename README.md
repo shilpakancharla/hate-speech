@@ -16,10 +16,7 @@ The tweets themselves, in total 40,000 of them, were labeled as negative (offens
 
 ## III. Model
 
-The main goal of this project is to build a model that discern hate speech on Twitter, a platform that rapidly lets your thoughts out with a simple click.
-                I have tried to follow a typical machine learning cycle in order to generate my model. The workflow can be summarized below by Google Cloud.
-                <img src="static/ml-workflow.png" alt="ml workflow" style="width:100%">
-                <p class="caption">ML Workflow (from Google Cloud)</p>
+The main goal of this project is to build a model that discern hate speech on Twitter, a platform that rapidly lets your thoughts out with a simple click. I have tried to follow a typical machine learning cycle in order to generate my model. 
             </p>
             <p>
                 There are six parts to this project:
@@ -62,16 +59,6 @@ The main goal of this project is to build a model that discern hate speech on Tw
                 Tweets can be tokenized and we can perform further operations on them, such as changing "n't" to "not". More detail can be find in the
                 Exploration.ipynb file in my repository linked below. We can look at the most common negative and positive words in a given dataset as well.
             </p>
-            <div class="row">
-                <div class="column">
-                    <img src="static/toptenneg.png" alt="top ten negative" style="width:100%">
-                    <p class="caption">Top ten negative words</p>
-                </div>
-                <div class="column">
-                    <img src="static/toptenpos.png" alt="top ten positive" style="width:100%">
-                    <p class="caption">Top ten positive words</p>
-                </div>
-            </div>
             <h4>Training of models</h4>
             <p>
                 The only predictor used for the modeling is the pre-processed and lemmatized version of the text. We use a Term Frequency Inverse Document Frequency (TF-IDF) 
@@ -84,8 +71,6 @@ The main goal of this project is to build a model that discern hate speech on Tw
                 The TF-IDF matrix was used across all of the models except for the CNN and Naive Bayes. The CNN performance had a very low accuracy (just above 50%) on the 
                 validation set. The neural network definitely needs improvement in order for deep learning to be a robust model for this application.
             </p>
-            <img class="center-image" src="static/eval.png" alt="model evaluation" style="width:80%">
-            <p class="caption">Comparison of the performance of all the models. Logistic regression performed with the highest accuracy.</p>
             <p>
                 The high performance of logistic regression is due to the fact that there is no neutral class of tweets present like there was in the unmodified datasets.
                 If we were to introduce a third class of neutral tweets in addition to the positive and negative tweets, the performance of the logistic regression has a 
@@ -95,14 +80,13 @@ The main goal of this project is to build a model that discern hate speech on Tw
             <h2>Prototype/development notes</h2>
             <p>
                 The model created is currently offline and has not been deployed yet. Currently, I have applied for Twitter developer access in order
-                to secure API keys and create a live feed upon deploying the logistic regression algorithm. The current code line for this application
-                is maintained at this <a href="https://github.com/shilpakancharla/hate-speech">repository</a>.
+                to secure API keys and create a live feed upon deploying the logistic regression algorithm.
             </p>
             <h4>What would a finished product look like?</h4>
             <p>
                 Once the Twitter API is connected, fresh tweets can be collected periodically (perhaps every few hours) on a local MySQL database which
                 solely serves the purpose to house an incoming sets of weets. The Python library Tweepy can be used to create a connection to the Twitter API.
-                Within my current codeline, I've included a file known as custom_tweepy_listener.py that would serve this purpose. It gathers the necessary
+                Within my current codeline, I've included a file known as `custom_tweepy_listener.py` that would serve this purpose. It gathers the necessary
                 information about an incoming tweet (actual tweet content and time). All text would need to trimmed of emojis in order to be stored in the database.
                 It's possible to also filter by topic. Specifically, we can look at topics potentially related to Islamophobia by looking at keywords such as "Islam"
                 and "Muslim." We gather this specific information by looking at the hashatgs on tweets.
