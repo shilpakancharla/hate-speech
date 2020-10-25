@@ -1,21 +1,12 @@
 import mysql
 import parser
 import tweepy
+from private.keys import api_key, api_secret_key, access_token, access_token_secret
 
 """
     Upon receiving information about the API keys from Twitter, this section will become active. For now,
     it acts as a placeholder.
 """
-
-# api key
-api_key = "Enter API Key"
-# api secret key
-api_secret_key = "Enter API Secret Key"
-# access token
-access_token = "Enter Access Token"
-# access token secret
-access_token_secret = "Enter Access Token Secret"
-
 authentication = tweepy.OAuthHandler(api_key, api_secret_key)
 authentication.set_access_token(access_token, access_token_secret)
 MyListener = MyListener(api=tweepy.API(authentication, wait_on_rate_limit=True))
