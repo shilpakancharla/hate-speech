@@ -4,11 +4,11 @@
 
 ## I. Goal
 
-              Hate speech, aggressive language, and cyberbullying on social platforms can make the experience of being digitally immersed very difficult.
-              While the argument of having the freedom of speech continually persist, the lines between true freedom and offensiveness become blurred.
-              Freedom of speech can easily be warped into offensive, hateful, and unconstructive words online, particularly towards people who belong to
-              marginalized communities. Formally, hate speech can be defined as <i>abusive or threatening speech or writing that expresses prejudice 
-              against a particular group, especially on the basis of race, religion, or sexual orientation</i> (as defined by Oxford Languages).
+Hate speech, aggressive language, and cyberbullying on social platforms can make the experience of being digitally immersed very difficult. While the argument of having the freedom of speech continually persist, the lines between true freedom and offensiveness become blurred. Freedom of speech can easily be warped into offensive, hateful, and unconstructive words online, particularly towards people who belong to marginalized communities. Formally, hate speech can be defined as *abusive or threatening speech or writing that expresses prejudice against a particular group, especially on the basis of race, religion, or sexual orientation* (as defined by Oxford Languages).
+
+As citizens, how can we keep track of hate speech online that's affecting our fellow peers and neighbors? While I believe there are myriad solutions
+to helping each other out, I wanted to try a solution using machine learning models. Machine learning classifiers, alongside a vast amount of data 
+gathered through API calls, can offer valid solutions to organizations and companies attempting to monitoring content on their platforms.
 
 ## II. Data
 
