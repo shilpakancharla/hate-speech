@@ -135,7 +135,7 @@
             <p>
                 The high performance of logistic regression is due to the fact that there is no neutral class of tweets present like there was in the unmodified datasets.
                 If we were to introduce a third class of neutral tweets in addition to the positive and negative tweets, the performance of the logistic regression has a 
-                definite chance of decreasing in accuracy.
+                definite chance of decreasing inaccuracy.
             </p>
             <hr>
             <h2>Prototype/development notes</h2>
@@ -146,20 +146,19 @@
             </p>
             <h4>What would a finished product look like?</h4>
             <p>
-                Once the Twitter API is connected, fresh tweets can be collected periodically (perhaps every few hours) on a local MySQL database which
-                solely serves the purpose to house an incoming sets of weets. The Python library Tweepy can be used to create a connection to the Twitter API.
-                Within my current codeline, I've included a file known as custom_tweepy_listener.py that would serve this purpose. It gathers the necessary
-                information about an incoming tweet (actual tweet content and time). All text would need to trimmed of emojis in order to be stored in the database.
-                It's possible to also filter by topic. Specifically, we can look at topics potentially related to Islamophobia by looking at keywords such as "Islam"
-                and "Muslim." We gather this specific information by looking at the hashatgs on tweets.
+                Once the Twitter API is connected, fresh tweets can be collected periodically (perhaps every few hours) on a local MySQL database which solely serves the purpose to 
+                house incoming sets of tweets. The Python library Tweepy can be used to create a connection to the Twitter API. Within my current codeline, I've included a file known 
+                as custom_tweepy_listener.py that would serve this purpose. It gathers the necessary information about an incoming tweet (actual tweet content and time). All text would 
+                need to trim of emojis in order to be stored in the database. It's possible to also filter by topic. Specifically, we can look at topics potentially related to Islamophobia 
+                by looking at keywords such as "Islam" and "Muslim." We gather this specific information by looking at the hashtags on tweets.
             </p>
             <p>
-                With this pipeline in place, we can pull sets of data from MySQL to a new Jupyter notebook where it can undergo similar preprocessing to the dataset
-                we had cleaned before. Ideally, it would be great to derive insights into the top most offensive words being used on the platform, and the ratio of 
-                negative to positive/neutral content circulating on the website.
+                With this pipeline in place, we can pull sets of data from MySQL to a new Jupyter notebook where it can undergo similar preprocessing to the dataset we had cleaned before. 
+                Ideally, it would be great to derive insights into the top most offensive words being used on the platform and the ratio of negative to positive/neutral content circulating 
+                on the website.
             </p>
             <p>
-                Currently, this application was is displayed using Flask and deployed on Heroku. It is possible to deploy the machine learning model via Flask to allow
+                Currently, this application was is displayed using Flask and deployed on Github Pages. It is possible to deploy the machine learning model via Flask to allow
                 a live feed of data analysis being done as new tweets come into the database and go through the preprocessing and algorithm.
             </p>
             <hr>
