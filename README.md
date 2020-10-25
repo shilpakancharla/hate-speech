@@ -12,5 +12,8 @@ gathered through API calls, can offer valid solutions to organizations and compa
 
 ## II. Data
 
+The tweets themselves, in total 40,000 of them, were labeled as negative (offensive) or positive (non-offensive). One of the datasets was taken from an <a href="https://datahack.analyticsvidhya.com/contest/practice-problem-twitter-sentiment-analysis/">Analytics Vidhaya competition</a>, 
+                while another one was taken from a collection found on this <a href="https://github.com/t-davidson/hate-speech-and-offensive-language/tree/master/data">Github repository</a>.
+
 ## III. Model
 
