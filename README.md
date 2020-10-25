@@ -57,7 +57,7 @@ The main goal of this project is to build a model that discern hate speech on Tw
             <h4>Exploratory data analysis</h4>
             <p>
                 Tweets can be tokenized and we can perform further operations on them, such as changing "n't" to "not". More detail can be find in the
-                Exploration.ipynb file in my repository linked below. We can look at the most common negative and positive words in a given dataset as well.
+                `Exploration.ipynb` file in my repository linked below. We can look at the most common negative and positive words in a given dataset as well.
             </p>
             <h4>Training of models</h4>
             <p>
