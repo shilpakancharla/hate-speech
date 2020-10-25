@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" href='static/main.css?Saturday 24th October 2020 6M'/>
+        <link rel="stylesheet" href='static/main.css?Saturday 24th October 2021'/>
         <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Roboto&display=swap" rel="stylesheet">
     </head>
     <body>
@@ -24,23 +24,110 @@
                     <p class="caption">Ratio of Negative to Neutral/Positive Words on a Given Dataset</p>
                 </div>
             </div>
-            <br>
-            <br>
+            <h2>Relevance</h2>
+            <hr>
+            <p>
+                Hate speech, aggressive language, and cyberbullying on social platforms can make the experience of being digitally immersed very difficult.
+                While the argument of having the freedom of speech continually persist, the lines between true freedom and offensiveness become blurred.
+                Freedom of speech can easily be warped into offensive, hateful, and unconstructive words online, particularly towards people who belong to
+                marginalized communities. Formally, hate speech can be defined as <i>abusive or threatening speech or writing that expresses prejudice 
+                against a particular group, especially on the basis of race, religion, or sexual orientation</i> (as defined by Oxford Languages).
+            </p>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/q4Yb8AWXgLI" frameborder="0" allow="accelerometer; autoplay; 
             clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <p class="caption">Music Video: T5 (Swet Shop Boys)</p>
+            <p>
+                In the song <i>T5</i> by the Swet Shop Boys (Riz Ahmed and Himanshu Suri), we instantly see an example of this in relation to Trump's 2016
+                presidential campaign and policies proposed upon being elected. The Muslim Ban in particular, sparked a wide range of hostile sentiments towards
+                the Muslim community. Trump's tweets online, such as the one below, has increased the overall sentiment of Islamophobia in the USA. Muslims, 
+                whether they are citizens, refugees, or have immigrated to America, have faced incredible amounts of discrimination within the US, as demonstrated
+                by Riz and Himanshu being specially screened at an airport. 
+            </p>
+            <blockquote class="twitter-tweet"><p lang="en" dir="ltr">13 Syrian refugees were caught trying to get into the U.S. through the Southern Border. How many made it? WE NEED THE WALL!</p>&mdash; Donald J. Trump (@realDonaldTrump) <a href="https://twitter.com/realDonaldTrump/status/668457318267400193?ref_src=twsrc%5Etfw">November 22, 2015</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            <p>
+                As citizens, how can we keep track of hate speech online that's affecting our fellow peers and neighbors? While I believe there are myriad solutions
+                to helping each other out, I wanted to try a solution using machine learning models. Machine learning classifiers, alongside a vast amount of data 
+                gathered through API calls, can offer valid solutions to organizations and companies attempting to monitoring content on their platforms.
+            </p>
             <hr>
             <h2>About the model</h2>
+            <p>
+                In this project, various classifiers such as logistic regression, decision trees, and convolutional neural networks were applied to a pre-processing 
+                dataset in an attempt to classify language used in tweets. The tweets themselves, in total 40,000 of them, were labeled as negative (offensive) or
+                positive (non-offensive). One of the datasets was taken from an <a href="https://datahack.analyticsvidhya.com/contest/practice-problem-twitter-sentiment-analysis/">Analytics Vidhaya competition</a>, 
+                while another one was taken from a collection found on this <a href="https://github.com/t-davidson/hate-speech-and-offensive-language/tree/master/data">Github repository</a>.
+            </p>
+            <p>
+                The main goal of this project is to build a model that discern hate speech on Twitter, a platform that rapidly lets your thoughts out with a simple click.
+                I have tried to follow a typical machine learning cycle in order to generate my model. The workflow can be summarized below by Google Cloud.
+                <img src="static/ml-workflow.png" alt="ml workflow" style="width:100%">
+                <p class="caption">ML Workflow</p>
+            </p>
+            <p>
+                There are six parts to this project:
+            </p>
+            <ol>
+                <li>Data preprocessing and cleaning</li>
+                <li>Exploratory data analysis</li>
+                <li>Training models</li>
+                <li>Fetch tweets using Twitter API and store in local MySQL base</li>
+                <li>Make predictions on new Tweets with the offline model</li>
+                <li>Deploy machine learning model</li>
+            </ol>
+            <h4>Data preprocessing and cleaning</h4>
+            <p>
+                Even when there is so much data available to us online, there is always some prelimary work we have to do before feeding data into 
+                a model, or even doing some exploratory data analysis. In this context of this project, there are two datasets, and ideally they should
+                be merged so that we can feed one cohesive set of data into the algorithm. The solution is to merge these datasets using the Pandas library.
+                In addition to merging these datasets, it is important to also balance them. There should be a roughly equal split between tweets that could
+                are labeled as negative/offensive and positive/non-offensive.
+            </p>
+            <p>
+                In addition, it's important to make sure that model receives data that is clean and relevant. For this reason, it is important to make the following
+                modifications:
+            </p>
+            <ol>
+                <li>Lowercase all words in tweets (eliminate any bias that could stem from words being uppercase or lowercase)</li>
+                <li>Removing duplicate tweets</li>
+                <li>Removing retweets</li>
+                <li>Removing Twitter handles</li>
+                <li>Removing mentions</li>
+                <li>Categorizing the parts of speech (lemmatization)</li>
+                <li>Removing excess whitespace</li>
+                <li>Removing stop words and words that are two characters or less</li>
+            </ol>
+            <p>
+                Making all these modifications causes extra columns to be added to the data frame as we process through. In the end, we drop the irrelevant columns.
+            </p>
+            <h4>Exploratory data analysis</h4>
+            <p>
+                Tweets can be tokenized and we can perform further operations on them, such as changing "n't" to "not". More detail can be find in the
+                Exploration.ipynb file in my repository linked below. We can look at the most common negative and positive words in a given dataset as well.
+            </p>
+            <div class="row">
+                <div class="column">
+                    <img src="static/toptenneg.png" alt="top ten negative" style="width:100%">
+                    <p class="caption">Top ten negative words</p>
+                </div>
+                <div class="column">
+                    <img src="static/toptenpos.png" alt="top ten positive" style="width:50%">
+                    <p class="caption">Top ten positive words</p>
+                </div>
+            </div>
             <hr>
-            <h2>Prototype/version notes</h2>
+            <h2>Prototype/development notes</h2>
             <p>
                 The model created is currently offline and has not been deployed yet. Currently, I have applied for Twitter developer access in order
                 to secure API keys and create a live feed upon deploying the logistic regression algorithm. The current code line for this application
                 is maintained at this <a href="https://github.com/shilpakancharla/hate-speech">repository</a>.
             </p>
+            <h4>What would a finished product look like?</h4>
             <hr>
             <h2>Extensions</h2>
             <p>
+                Extensions can come in two ways: technologically and socially.
+            </p>
+            <p>                
                 This platform should be extended into any kind of social media where there is an opportunity to see public content. Examples of this 
                 could include Instagram, LinkedIn, and even YouTube comments. 
             </p>

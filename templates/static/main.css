@@ -1,17 +1,12 @@
 body {
     margin-top: 50px;
-    margin-left: 100px;
 }
   
 p {
     font-family: 'Roboto', sans-serif;
 }
   
-h1 {
-    font-family: 'Cutive Mono', monospace;
-}
-
-h2 {
+h1, h2, h4 {
     font-family: 'Cutive Mono', monospace;
 }
 
@@ -21,7 +16,7 @@ h2 {
 }
 
 .ex1 {
-    width: 850px;
+    width: 900px;
     margin: auto;
 }
 
