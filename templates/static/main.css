@@ -38,3 +38,10 @@ div, iframe {
     margin: 0 auto;
     display:block;
 }
+
+footer {
+    font-family: 'Cutive Mono', monospace;
+    text-align: center;
+    padding: 3px;
+    font-size: 10px;
+}

@@ -1,6 +1,6 @@
 <html>
     <head>
-        <link rel="stylesheet" href='static/main.css?Saturday 25th October2'/>
+        <link rel="stylesheet" href='static/main.css?Saturday 25th October4'/>
         <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Roboto&display=swap" rel="stylesheet">
     </head>
     <body>
@@ -61,7 +61,7 @@
                 The main goal of this project is to build a model that discern hate speech on Twitter, a platform that rapidly lets your thoughts out with a simple click.
                 I have tried to follow a typical machine learning cycle in order to generate my model. The workflow can be summarized below by Google Cloud.
                 <img src="static/ml-workflow.png" alt="ml workflow" style="width:100%">
-                <p class="caption">ML Workflow</p>
+                <p class="caption">ML Workflow (from Google Cloud)</p>
             </p>
             <p>
                 There are six parts to this project:
@@ -163,11 +163,24 @@
             <p>
                 Extensions can come in two ways: technologically and socially.
             </p>
+            <h4>Technological Limitations and Improvements</h4>
             <p>                
                 This platform should be extended into any kind of social media where there is an opportunity to see public content. Examples of this 
-                could include Instagram, LinkedIn, and even YouTube comments. 
+                could include Instagram, LinkedIn, and even YouTube comments. Moreover, even though this model performed well as a logistic regression,
+                the convolutional neural network model needs significant improvement. The datasets used for this project were created by CrowdFlow users who 
+                judged certain tweets as hate speech, offensive, positive, or neutral. Some may find certain to be very harmful and offensive while others do 
+                not. This type of crowdsourced data can have the possible to skew the findings, and this is something anyone who practices machine learning 
+                should be aware of.
             </p>
-            <hr>
+            <h4>Social Impact and Discussion</h4>
+            <p>
+                We have a social responsibility to treat other with kindness and respect. While the judgment used to label tweets as offensive and non-offensive 
+                is very subjective, it is our best call to practice empathy in order to better understand why some language makes certain people feel uncomfortable.
+            </p>
         </div>
     </body>
 </html>
+<footer>
+    <p>Author: Shilpa Kancharla</p>
+    <p>This prototype was created for Technica 2020 and it is a project that still is under development. Current deployment is only for judging purposes.</p>
+</footer>
