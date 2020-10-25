@@ -2,17 +2,22 @@ body {
     margin-top: 50px;
 }
   
-p {
+p, ol, li {
     font-family: 'Roboto', sans-serif;
 }
   
-h1, h2, h4 {
+h1, h2, h4{
     font-family: 'Cutive Mono', monospace;
+}
+
+.center-image {
+    margin: 0 auto;
+    display:block;
 }
 
 .caption {
     text-align: center;
-    font-size: 10px;
+    font-size: 15px;
 }
 
 .ex1 {
