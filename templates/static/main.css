@@ -1,17 +1,32 @@
 body {
-    background: Linen;
     margin-top: 50px;
     margin-left: 100px;
 }
   
 p {
-    font-family: Georgia, serif;
-    font-size: 1.2em;
+    font-family: 'Roboto', sans-serif;
     color: DarkSlateGray;
 }
   
 h1 {
-    font-family: Verdana, Geneva, sans-serif;
-    font-size: 2.5em;
-    color: FireBrick;
+    font-family: 'Cutive Mono', monospace;
+}
+
+h2 {
+    font-family: 'Cutive Mono', monospace;
+}
+
+.caption {
+    text-align: center;
+    font-size: 100px;
+}
+
+div.ex1 {
+    width: 700px;
+    margin: auto;
+}
+
+div, iframe {
+    margin: 0 auto;
+    display:block;
 }
